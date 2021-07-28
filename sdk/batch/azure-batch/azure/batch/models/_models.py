@@ -2586,12 +2586,12 @@ class ContainerConfiguration(Model):
 class ContainerRegistry(Model):
     """A private container registry.
 
-    :param registry_server: If omitted, the default is "docker.io".
-    :type registry_server: str
     :param user_name:
     :type user_name: str
     :param password:
     :type password: str
+    :param registry_server: If omitted, the default is "docker.io".
+    :type registry_server: str
     :param identity_reference: The reference to the user assigned identity to
      use to access an Azure Container Registry instead of username and
      password.
@@ -2599,17 +2599,17 @@ class ContainerRegistry(Model):
     """
 
     _attribute_map = {
-        'registry_server': {'key': 'registryServer', 'type': 'str'},
         'user_name': {'key': 'username', 'type': 'str'},
         'password': {'key': 'password', 'type': 'str'},
+        'registry_server': {'key': 'registryServer', 'type': 'str'},
         'identity_reference': {'key': 'identityReference', 'type': 'ComputeNodeIdentityReference'},
     }
 
     def __init__(self, **kwargs):
         super(ContainerRegistry, self).__init__(**kwargs)
-        self.registry_server = kwargs.get('registry_server', None)
         self.user_name = kwargs.get('user_name', None)
         self.password = kwargs.get('password', None)
+        self.registry_server = kwargs.get('registry_server', None)
         self.identity_reference = kwargs.get('identity_reference', None)
 
 
